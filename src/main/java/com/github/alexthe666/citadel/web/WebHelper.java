@@ -16,6 +16,9 @@ public class WebHelper {
         try {
             URL url = new URL(urlString);
             URLConnection connection = url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(10000);
+
             InputStream stream = connection.getInputStream();
             InputStreamReader reader = new InputStreamReader(stream);
             
